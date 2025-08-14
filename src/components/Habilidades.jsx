@@ -4,25 +4,26 @@ const Habilidades = () => {
   const [abaAtiva, setAbaAtiva] = useState('tecnologias');
 
   const tecnologias = [
-    { nome: 'JavaScript', imagem: `${process.env.PUBLIC_URL}/icons/JavaScript.svg` },
-    { nome: 'React', imagem: `${process.env.PUBLIC_URL}/icons/React.svg` },
-    { nome: 'TailwindCSS', imagem: `${process.env.PUBLIC_URL}/icons/TailwindCSS.svg` },
-    { nome: 'Python', imagem: `${process.env.PUBLIC_URL}/icons/Python.svg` },
-    { nome: 'Flask', imagem: `${process.env.PUBLIC_URL}/icons/Flask.svg` },
-    { nome: 'HTML', imagem: `${process.env.PUBLIC_URL}/icons/HTML.svg` },
-    { nome: 'CSS', imagem: `${process.env.PUBLIC_URL}/icons/CSS.svg` },
-    { nome: 'Bootstrap', imagem: `${process.env.PUBLIC_URL}/icons/Bootstrap.svg` },
-    { nome: 'PostgreSQL', imagem: `${process.env.PUBLIC_URL}/icons/PostgreSQL.svg` },
+    { nome: 'JavaScript', slug: 'javascript' },
+    { nome: 'React', slug: 'react' },
+    { nome: 'TailwindCSS', slug: 'tailwind' },
+    { nome: 'Python', slug: 'python' },
+    { nome: 'Flask', slug: 'flask' },
+    { nome: 'HTML', slug: 'html' },
+    { nome: 'CSS', slug: 'css' },
+    { nome: 'Bootstrap', slug: 'bootstrap' },
+    { nome: 'PostgreSQL', slug: 'postgres' },
   ];
 
   const ferramentas = [
-    { nome: 'Git', imagem: `${process.env.PUBLIC_URL}/icons/Git.svg` },
-    { nome: 'GitHub', imagem: `${process.env.PUBLIC_URL}/icons/GitHub.svg` },
-    { nome: 'Selenium', imagem: `${process.env.PUBLIC_URL}/icons/Selenium.svg` },
-    { nome: 'Postman', imagem: `${process.env.PUBLIC_URL}/icons/Postman.svg` },
-    { nome: 'Vite', imagem: `${process.env.PUBLIC_URL}/icons/Vite.svg` },
-    { nome: 'Docker', imagem: `${process.env.PUBLIC_URL}/icons/Docker.svg` },
+    { nome: 'Git', slug: 'git' },
+    { nome: 'GitHub', slug: 'github' },
+    { nome: 'Selenium', slug: 'selenium' },
+    { nome: 'Postman', slug: 'postman' },
+    { nome: 'Vite', slug: 'vite' },
+    { nome: 'Docker', slug: 'docker' },
   ];
+
 
 
   const outros = [
@@ -118,10 +119,12 @@ const Habilidades = () => {
               {tecnologias.map((tec) => (
                 <div key={tec.nome} className="flex flex-col items-center">
                   <img
-                    src={tec.imagem}
+                    src={`https://skillicons.dev/icons?i=${tec.slug}`}
                     alt={tec.nome}
-                    className="w-20 h-20 object-contain mb-2"
+                    className="w-16 h-16 object-contain mb-2"
+                    loading="lazy"
                   />
+
                   <span className="text-sm">{tec.nome}</span>
                 </div>
               ))}
@@ -135,10 +138,12 @@ const Habilidades = () => {
               {ferramentas.map((ferramenta) => (
                 <div key={ferramenta.nome} className="flex flex-col items-center">
                   <img
-                    src={ferramenta.imagem}
+                    src={`https://skillicons.dev/icons?i=${ferramenta.slug}`}
                     alt={ferramenta.nome}
-                    className="w-20 h-20 object-contain mb-2"
+                    className="w-16 h-16 object-contain mb-2"
+                    loading="lazy"
                   />
+
                   <span className="text-sm">{ferramenta.nome}</span>
                 </div>
               ))}
