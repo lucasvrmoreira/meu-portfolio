@@ -230,7 +230,8 @@ export default function Projetos() {
               <SwiperSlide key={index}>
                 {/* 👇 limita o tamanho do card, deixando-o "menor" e centralizado */}
                 <div className="max-w-[350px] md:max-w-[450px] mx-auto">
-                  <div className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 min-h-[600px] flex flex-col justify-between">
+                  <div className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 min-h-[650px] flex flex-col justify-between overflow-visible">
+
 
                     <h3 className="text-xl font-bold text-purple-400 mb-2">{projeto.nome}</h3>
                     <p className="text-gray-300 mb-4">{projeto.descricao}</p>
@@ -277,7 +278,7 @@ export default function Projetos() {
                     {/* Animação de manutenção */}
                     {projeto.mostrarManutencao && (
                       <div className="relative pt-4 flex justify-center items-center min-h-[320px] overflow-visible">
-                        <div className="w-[250px] h-[250px] relative -top-1 -left-19">
+                        <div className="pt-4 flex justify-center items-center min-h-[280px] overflow-visible">
                           <AnimacaoManutencao />
                         </div>
                       </div>
