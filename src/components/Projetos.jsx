@@ -277,7 +277,10 @@ export default function Projetos() {
 
                     {/* Animação de manutenção */}
                     {projeto.lottie && (
-                      <div className="relative pt-4 flex justify-center items-center min-h-[320px] overflow-visible">
+                      <div className="relative pt-4 flex flex-col justify-center items-center min-h-[320px] overflow-visible">
+                        <p className="text-center mb-3 text-sm text-gray-400">
+                          Fase final de desenvolvimento
+                        </p>
                         <Lottie
                           animationData={projeto.lottie}
                           loop
@@ -285,6 +288,7 @@ export default function Projetos() {
                         />
                       </div>
                     )}
+
 
 
 
