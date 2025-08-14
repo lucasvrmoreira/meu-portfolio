@@ -155,8 +155,8 @@ const projetos = [
   {
     nome: 'Automação Fiscal com Python',
     descricao:
-      'Sistema que realiza consulta e validação de NF-e, leitura de XMLs e integração com ERP utilizando Selenium e APIs.',
-    tecnologias: ['Python', 'Selenium', 'JavaScript'],
+      'Sistema inteligente que lê dados hexadecimais armazenados em tabelas de banco de dados e os converte automaticamente para o formato XML. Desenvolvido para possibilitar o download em massa de arquivos de Nota Fiscal Eletrônica (NF-e) com base nos dados processados',
+    tecnologias: ['Python', 'Selenium', 'JavaScript','FastAPI','XML','PostgreSQL'],
     mostrarManutencao: true,
   },
   {
