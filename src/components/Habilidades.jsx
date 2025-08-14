@@ -4,26 +4,26 @@ const Habilidades = () => {
   const [abaAtiva, setAbaAtiva] = useState('tecnologias');
 
   const tecnologias = [
-    { nome: 'JavaScript', imagem: '/icons/JavaScript.svg' },
-    { nome: 'React', imagem: '/icons/React.svg' },
-    { nome: 'TailwindCSS', imagem: '/icons/TailwindCSS.svg' },
-    { nome: 'Python', imagem: '/icons/Python.svg' },
-    { nome: 'Flask', imagem: '/icons/Flask.svg' },
-    { nome: 'HTML', imagem: '/icons/HTML.svg' },
-    { nome: 'CSS', imagem: '/icons/CSS.svg' },
-    { nome: 'Bootstrap', imagem: '/icons/Bootstrap.svg' },
-    { nome: 'PostgreSQL', imagem: '/icons/PostgreSQL.svg' },
-
+    { nome: 'JavaScript', imagem: `${process.env.PUBLIC_URL}/icons/JavaScript.svg` },
+    { nome: 'React', imagem: `${process.env.PUBLIC_URL}/icons/React.svg` },
+    { nome: 'TailwindCSS', imagem: `${process.env.PUBLIC_URL}/icons/TailwindCSS.svg` },
+    { nome: 'Python', imagem: `${process.env.PUBLIC_URL}/icons/Python.svg` },
+    { nome: 'Flask', imagem: `${process.env.PUBLIC_URL}/icons/Flask.svg` },
+    { nome: 'HTML', imagem: `${process.env.PUBLIC_URL}/icons/HTML.svg` },
+    { nome: 'CSS', imagem: `${process.env.PUBLIC_URL}/icons/CSS.svg` },
+    { nome: 'Bootstrap', imagem: `${process.env.PUBLIC_URL}/icons/Bootstrap.svg` },
+    { nome: 'PostgreSQL', imagem: `${process.env.PUBLIC_URL}/icons/PostgreSQL.svg` },
   ];
 
   const ferramentas = [
-    { nome: 'Git', imagem: '/icons/Git.svg' },
-    { nome: 'GitHub', imagem: '/icons/GitHub.svg' },
-    { nome: 'Selenium', imagem: '/icons/Selenium.svg' },
-    { nome: 'Postman', imagem: '/icons/Postman.svg' },
-    { nome: 'Vite', imagem: '/icons/Vite.svg' },
-    { nome: 'Docker', imagem: '/icons/Docker.svg' },
+    { nome: 'Git', imagem: `${process.env.PUBLIC_URL}/icons/Git.svg` },
+    { nome: 'GitHub', imagem: `${process.env.PUBLIC_URL}/icons/GitHub.svg` },
+    { nome: 'Selenium', imagem: `${process.env.PUBLIC_URL}/icons/Selenium.svg` },
+    { nome: 'Postman', imagem: `${process.env.PUBLIC_URL}/icons/Postman.svg` },
+    { nome: 'Vite', imagem: `${process.env.PUBLIC_URL}/icons/Vite.svg` },
+    { nome: 'Docker', imagem: `${process.env.PUBLIC_URL}/icons/Docker.svg` },
   ];
+
 
   const outros = [
     {
