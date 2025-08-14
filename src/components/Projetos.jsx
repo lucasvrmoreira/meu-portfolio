@@ -213,7 +213,7 @@ export default function Projetos() {
             navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 50000, disableOnInteraction: false }}
-            speed={600}
+            speed={50000}
             spaceBetween={24}
             slidesPerView={1}     // 👈 1 por vez (sempre vai deslizar)
             centeredSlides        // card central
