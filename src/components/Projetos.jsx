@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import maintenanceAnimation from "../assets/maintenance-web.json"; // ajuste se o caminho for diferente
+import maintenanceAnimation from "../assets/maintenance-web.json"; // ajuste o caminho se necessário
 
-
-
-// ===== Toast simples =====
+/***************************** Toast *********************************/
 function Toast({ message }) {
   if (!message) return null;
   return (
-    <div className="fixed bottom-5 right-5 bg-purple-700 text-white text-sm px-4 py-2 rounded-lg shadow-lg">
+    <div className="fixed bottom-5 right-5 bg-purple-700 text-white text-sm px-4 py-2 rounded-lg shadow-lg z-50">
       {message}
     </div>
   );
 }
 
-// ===== Botão com ícone =====
+/******************** Botões (GitHub / Ver Online) *******************/
 function PillButton({ href, icon, children }) {
   return (
     <a
@@ -29,20 +27,18 @@ function PillButton({ href, icon, children }) {
   );
 }
 
-// ===== Ícones SVG (GitHub + Deploy genérico) =====
 const GithubIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.29 3.438 9.772 8.205 11.366.6.111.82-.261.82-.577v-2.024c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.729.082-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.107-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.932 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.118-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.292-1.553 3.298-1.23 3.298-1.23.656 1.653.244 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.628-5.476 5.922.43.372.823 1.103.823 2.222v3.293c0 .319.218.694.825.576C20.565 22.27 24 17.79 24 12.5 24 5.87 18.63.5 12 .5z" />
+    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.29 3.438 9.772 8.205 11.366.6.111.82-.261.82-.577v-2.024c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.729.082-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.107-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.932 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.118-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.292-1.553 3.298-1.23 3.298-1.23.656 1.653.244 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.628-5.476 5.922.43.372.823 1.103.823 2.222v3.293c0 .319.218.694.825.576C20.565 22.27 24 17.79 24 12.5 24 5.87 18.63.5 12 .5z"/>
   </svg>
 );
 
 const DeployIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 0L1.605 6v12L12 24l10.395-6V6z" />
+    <path d="M12 0L1.605 6v12L12 24l10.395-6V6z"/>
   </svg>
 );
 
-// ===== Row de links (Online + GitHub) =====
 function LinkRow({ github, online }) {
   return (
     <div className="mt-4 flex flex-wrap gap-2">
@@ -52,7 +48,7 @@ function LinkRow({ github, online }) {
   );
 }
 
-// ===== Campo de segredo (com olho + copiar) =====
+/******************* Credenciais (olho + copiar) *********************/
 function SecretField({ label, value, setToast }) {
   const [show, setShow] = useState(false);
 
@@ -60,7 +56,7 @@ function SecretField({ label, value, setToast }) {
     try {
       await navigator.clipboard.writeText(value);
       setToast(`${label} copiado!`);
-    } catch { }
+    } catch {}
   };
 
   return (
@@ -96,7 +92,6 @@ function SecretField({ label, value, setToast }) {
   );
 }
 
-// ===== Credenciais completas =====
 function Credenciais({ credenciais, setToast }) {
   if (!credenciais) return null;
   return (
@@ -108,7 +103,7 @@ function Credenciais({ credenciais, setToast }) {
   );
 }
 
-// ===== Helper: mapa (Nome -> id do skillicons) =====
+/**************** Ícones de tecnologias (skillicons + fallback) ****************/
 const techToIconId = (name) => {
   const map = {
     Python: 'python',
@@ -121,42 +116,61 @@ const techToIconId = (name) => {
     JavaScript: 'javascript',
     Selenium: 'selenium',
     TailwindCSS: 'tailwind',
-    'PyAutoGUI': null, // sem ícone no skillicons
-    API: null,
-    XML: null,
+    Bootstrap: 'bootstrap',
   };
   return map[name] ?? null;
 };
 
 const hasSkillIcon = (id) => Boolean(id);
 
-// ===== Dados dos projetos =====
+/******************** Animação de manutenção (Lottie) ********************/
+function AnimacaoManutencao() {
+  return (
+    <div className="mt-auto flex flex-col items-center text-sm text-gray-400">
+      <p className="text-center mb-3">Fase final de desenvolvimento</p>
+      {/* Slot com tamanho fixo responsivo para evitar corte */}
+      <div className="w-[260px] h-[200px] sm:w-[320px] sm:h-[240px] md:w-[380px] md:h-[280px] overflow-visible flex justify-center">
+        <Lottie animationData={maintenanceAnimation} loop className="w-full h-full" />
+      </div>
+    </div>
+  );
+}
+
+/******************************* Dados *******************************/
 const projetos = [
   {
     nome: 'Automação Fiscal com Python',
     descricao:
-      'Sistema que realiza consulta e validação de NF-e, leitura de XMLs e integração com ERP utilizando Selenium, PyAutoGUI e APIs.',
-    tecnologias: ['Python', 'Selenium', 'API', 'PyAutoGUI', 'XML'],
-    // finalizando o projeto github: 'https://github.com/seuusuario/automacao-fiscal'
+      'Sistema que realiza consulta e validação de NF-e, leitura de XMLs e integração com ERP utilizando Selenium e APIs.',
+    tecnologias: ['Python', 'Selenium', 'JavaScript'],
+    //github: 'https://github.com/seuusuario/automacao-fiscal',
+    //online: '',
+    //credenciais: null,
+    mostrarManutencao: true,
+  },
+  {
+    nome: 'SICRO - Sistema de Controle de Roupas Estéreis',
+    descricao:
+      'O SICRO é uma aplicação desenvolvida para gerenciar todo o ciclo de vida das roupas esterilizadas utilizadas em hospitais,laboratorios e centros cirúrgicos, garantindo rastreabilidade, segurança e conformidade com os protocolos da CCIH.',
+    tecnologias: ['Python', 'Flask', 'PostgreSQL','Vite','React', 'JavaScript'],
+    //github: 'https://github.com/seuusuario/sicro',
+    //online: '',
+    //credenciais: null,
+    mostrarManutencao: true,
   },
   {
     nome: 'GQ TRACK',
     descricao:
-      'Sistemas voltado para a area farmaceutica que automatiza a etiquetagem manual. Cada lote recebe um QR Code que armazena suas informações e o Certificado de Análise.A Garantia da Qualidade altera o status do material com um clique, e na produção, ao bipar o QR Code, o sistema exibe e registra automaticamente todos os dados, integrando-se ao SAP via API ou ODBC.',
-    tecnologias: ['Python', 'Flask', 'PostgreSQL', 'HTML', 'CSS', 'React', 'Vite', 'TailwindCSS', 'JavaScript'],
+      'Sistema voltado para a área farmacêutica que automatiza a etiquetagem, gera QR Code e integra com SAP.',
+    tecnologias: ['Python', 'Flask', 'PostgreSQL', 'React', 'Vite', 'TailwindCSS', 'JavaScript'],
     github: 'https://github.com/lucasvrmoreira/gqtrack',
     online: 'https://gqtrack.vercel.app/',
-    credenciais: { user: 'admin', pass: '123456' }
+    credenciais: { user: 'admin', pass: '123456' },
+    mostrarManutencao: false,
   },
-  {
-    nome: 'SICRO - Sistema de Controle de Roupas Estereis',
-    descricao:
-      'SICRO é uma aplicação desenvolvida para gerenciar todo o ciclo de vida das roupas esterilizadas utilizadas em hospitais, centros cirúrgicos e laboratorios garantindo rastreabilidade, segurança e conformidade com os protocolos da CCIH.',
-    tecnologias: ['React', 'Vite', 'TailwindCSS', 'Python', 'HTML', 'CSS', 'JavaScript'],
-    ///github: 'https://github.com/seuusuario/portfolio'
-  }
 ];
 
+/**************************** Componente raiz ****************************/
 export default function Projetos() {
   const [toast, setToast] = useState('');
 
@@ -179,7 +193,7 @@ export default function Projetos() {
             {projetos.map((projeto, index) => (
               <div
                 key={index}
-                className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300"
+                className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 flex flex-col min-h-[720px] pb-8"
               >
                 <h3 className="text-xl font-bold text-purple-400 mb-2">{projeto.nome}</h3>
                 <p className="text-gray-300 mb-4">{projeto.descricao}</p>
@@ -197,6 +211,7 @@ export default function Projetos() {
                         width="32"
                         height="32"
                         className="rounded-full bg-purple-700/70 p-1"
+                        loading="lazy"
                       />
                     ) : (
                       <span
@@ -209,10 +224,10 @@ export default function Projetos() {
                   })}
                 </div>
 
-                {/* Links para GitHub e Online */}
+                {/* Links */}
                 <LinkRow github={projeto.github} online={projeto.online} />
 
-                {/* Mensagem e credenciais */}
+                {/* Mensagem + Credenciais (quando existir) */}
                 {projeto.credenciais && (
                   <>
                     <p className="mt-4 text-sm text-gray-400">
@@ -222,47 +237,15 @@ export default function Projetos() {
                   </>
                 )}
 
-                {projeto.nome === 'Automação Fiscal com Python' && (
-                  <div className="flex flex-col items-center gap-4 text-sm text-gray-400 h-full">
-                    <p className="text-center mt-10">
-                      Fase final de desenvolvimento
-                    </p>
-
-                    <div className="-ml-20"> {/* ajusta a animação para a esquerda */}
-                      <Lottie
-                        animationData={maintenanceAnimation}
-                        loop={true}
-                        style={{ width: 350, height: 350 }}
-                      />
-                    </div>
-                  </div>
-                )}
-
-
-                {projeto.nome === 'SICRO - Sistema de Controle de Roupas Estereis' && (
-                  <div className="flex flex-col items-center gap-4 text-sm text-gray-400 h-full">
-                    <p className="text-center mt-10">
-                      Fase final de desenvolvimento
-                    </p>
-
-                    <div className="-ml-20"> {/* ajusta a animação para a esquerda */}
-                      <Lottie
-                        animationData={maintenanceAnimation}
-                        loop={true}
-                        style={{ width: 350, height: 350 }}
-                      />
-                    </div>
-                  </div>
-                )}
-
+                {/* Animação de manutenção (para projetos em desenvolvimento) */}
+                {projeto.mostrarManutencao && <AnimacaoManutencao />}
               </div>
-
             ))}
           </div>
         </div>
       </section>
 
-      {/* Rodapé  */}
+      {/* Rodapé */}
       <footer className="bg-black text-white py-6 px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-center md:text-left">
