@@ -146,7 +146,7 @@ function AnimacaoManutencao() {
           style={{ maxWidth: '300px', width: '100%', height: 'auto' }}
         />
 
-        
+
       </div>
 
 
@@ -230,7 +230,7 @@ export default function Projetos() {
               <SwiperSlide key={index}>
                 {/* 👇 limita o tamanho do card, deixando-o "menor" e centralizado */}
                 <div className="max-w-[420px] md:max-w-[520px] mx-auto">
-                  <div className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 min-h-[500px] flex flex-col justify-between">
+                  <div className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 min-h-[600px] flex flex-col justify-between">
                     <h3 className="text-xl font-bold text-purple-400 mb-2">{projeto.nome}</h3>
                     <p className="text-gray-300 mb-4">{projeto.descricao}</p>
 
@@ -274,11 +274,15 @@ export default function Projetos() {
                     )}
 
                     {/* Animação de manutenção (para projetos em desenvolvimento) */}
+                    {/* Animação de manutenção (para projetos em desenvolvimento) */}
                     {projeto.mostrarManutencao && (
-                      <div className="pt-4 flex justify-center items-center min-h-[280px] overflow-visible">
-                        <AnimacaoManutencao />
+                      <div className="pt-4 flex justify-center items-center min-h-[320px] overflow-visible">
+                        <div className="w-[250px] h-[250px]">
+                          <AnimacaoManutencao />
+                        </div>
                       </div>
                     )}
+
 
                   </div>
                 </div>
