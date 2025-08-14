@@ -135,13 +135,13 @@ const hasSkillIcon = (id) => Boolean(id);
 /******************** Animação de manutenção (Lottie) ********************/
 function AnimacaoManutencao() {
   return (
-    <div className="mt-10 flex flex-col items-center text-sm text-gray-400">
+    <div className="flex flex-col items-center text-sm text-gray-400">
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
-      <div className="flex justify-center items-center w-full max-w-[440px] mx-auto min-h-[280px]">
+      <div className="flex justify-center items-center w-full max-w-[440px] mx-auto">
         <Lottie
           animationData={maintenanceAnimation}
           loop
-          style={{ width: '100%', height: '100%' }}
+          style={{ maxWidth: '300px', width: '100%', height: 'auto' }}
         />
       </div>
 
@@ -269,10 +269,11 @@ export default function Projetos() {
 
                     {/* Animação de manutenção (para projetos em desenvolvimento) */}
                     {projeto.mostrarManutencao && (
-                      <div className="mt-auto pt-4 flex-1 flex items-center">
+                      <div className="pt-4 flex justify-center items-center min-h-[280px] overflow-visible">
                         <AnimacaoManutencao />
                       </div>
                     )}
+
                   </div>
                 </div>
               </SwiperSlide>
