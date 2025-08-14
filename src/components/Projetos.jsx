@@ -137,13 +137,14 @@ function AnimacaoManutencao() {
   return (
     <div className="mt-10 flex flex-col items-center text-sm text-gray-400">
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
-      <div className="flex justify-center items-center w-full max-w-[440px] mx-auto">
+      <div className="mx-auto w-[320px] h-[280px] sm:w-[380px] sm:h-[340px] md:w-[460px] md:h-[380px] flex justify-center items-center overflow-visible">
         <Lottie
           animationData={maintenanceAnimation}
           loop
-          style={{ width: '100%', height: 'auto' }}
+          style={{ width: '100%', height: '100%', overflow: 'visible' }}
         />
       </div>
+
     </div>
   );
 }
@@ -156,7 +157,7 @@ const projetos = [
     nome: 'Automação Fiscal com Python',
     descricao:
       'Sistema inteligente que lê dados hexadecimais armazenados em tabelas de banco de dados e os converte automaticamente para o formato XML. Desenvolvido para possibilitar o download em massa de arquivos de Nota Fiscal Eletrônica (NF-e) com base nos dados processados',
-    tecnologias: ['Python', 'Selenium', 'JavaScript','FastAPI','XML','PostgreSQL'],
+    tecnologias: ['Python', 'Selenium', 'JavaScript', 'FastAPI', 'XML', 'PostgreSQL'],
     mostrarManutencao: true,
   },
   {
