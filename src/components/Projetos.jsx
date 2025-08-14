@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
+import constructionAnimation from "../assets/constructionAnimation.json";
+
+
+
+/***************************** Swiper (carrossel) *****************************/
+// CRA/React "normal": basta instalar e importar assim
+// npm install swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import maintenanceAnimation from "../assets/maintenance-web.json"; // ajuste o caminho se necessário
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -136,10 +141,12 @@ function AnimacaoManutencao() {
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
       <div className="flex justify-center items-center w-full max-w-[440px] mx-auto">
         <Lottie
-          animationData={maintenanceAnimation}
+          animationData={constructionAnimation}
           loop
-          style={{ width: '100%', height: 'auto' }}
+          style={{ maxWidth: '300px', width: '100%', height: 'auto' }}
         />
+
+        
       </div>
 
 
@@ -192,7 +199,11 @@ export default function Projetos() {
   return (
     <>
       {/* Força estilos do Swiper no CRA/GitHub Pages para evitar clipping e garantir botões visíveis */}
-
+      <style>{`
+        .swiper, .swiper-wrapper, .swiper-slide { overflow: visible !important; }
+        .swiper-button-next, .swiper-button-prev { color: #a855f7; }
+        .swiper-pagination-bullet-active { background: #a855f7; }
+      `}</style>
 
       <section id="projetos" className="bg-bg-white text-black py-40 px-12">
         <div className="max-w-8xl mx-auto">
@@ -205,7 +216,7 @@ export default function Projetos() {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 10000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             speed={600}
             spaceBetween={24}
             slidesPerView={1}
@@ -298,4 +309,3 @@ export default function Projetos() {
     </>
   );
 }
-
