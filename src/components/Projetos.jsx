@@ -164,14 +164,14 @@ const projetos = [
     descricao:
       'Sistema inteligente que lê dados hexadecimais armazenados em tabelas de banco de dados e os converte automaticamente para o formato XML. Desenvolvido para possibilitar o download em massa de arquivos de Nota Fiscal Eletrônica (NF-e) com base nos dados processados',
     tecnologias: ['Python', 'Selenium', 'JavaScript', 'FastAPI', 'XML', 'PostgreSQL'],
-    mostrarManutencao: true,
+    lottie: constructionAnimation,
   },
   {
     nome: 'SICRO - Sistema de Controle de Roupas Estéreis',
     descricao:
       'O SICRO é uma aplicação desenvolvida para gerenciar todo o ciclo de vida das roupas esterilizadas utilizadas em hospitais,laboratorios e centros cirúrgicos, garantindo rastreabilidade, segurança e conformidade com os protocolos da CCIH.',
     tecnologias: ['Python', 'Flask', 'PostgreSQL', 'Vite', 'React', 'JavaScript'],
-    mostrarManutencao: true,
+    lottie: constructionAnimation,
   },
   {
     nome: 'GQ TRACK',
@@ -181,7 +181,7 @@ const projetos = [
     github: 'https://github.com/lucasvrmoreira/gqtrack',
     online: 'https://gqtrack.vercel.app/',
     credenciais: { user: 'admin', pass: '123456' },
-    mostrarManutencao: false,
+    //lottie: constructionAnimation,
   },
 ];
 
@@ -276,13 +276,16 @@ export default function Projetos() {
                     )}
 
                     {/* Animação de manutenção */}
-                    {projeto.mostrarManutencao && (
+                    {projeto.lottie && (
                       <div className="relative pt-4 flex justify-center items-center min-h-[320px] overflow-visible">
-                        <div className="pt-4 flex justify-center items-center min-h-[280px] overflow-visible">
-                          <AnimacaoManutencao />
-                        </div>
+                        <Lottie
+                          animationData={projeto.lottie}
+                          loop
+                          style={{ maxWidth: "280px", width: "100%", height: "auto" }}
+                        />
                       </div>
                     )}
+
 
 
 
