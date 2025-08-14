@@ -32,3 +32,10 @@ svg {
   display: block;
   line-height: 0;
 }
+@layer components {
+  .meu-projetos-swiper,
+  .meu-projetos-swiper .swiper,
+  .meu-projetos-swiper .swiper-slide {
+    overflow: visible !important;
+  }
+}

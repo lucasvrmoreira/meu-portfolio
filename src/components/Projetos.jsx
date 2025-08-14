@@ -212,14 +212,15 @@ export default function Projetos() {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 50000, disableOnInteraction: false }} // 50 segundos no slide
-            speed={600} // transição rápida
+            autoplay={{ delay: 10000, disableOnInteraction: false }}
+            speed={600}
             spaceBetween={24}
             slidesPerView={1}
             centeredSlides
             loop
-            className="!overflow-visible max-w-[1200px] mx-auto"
+            className="meu-projetos-swiper max-w-[1200px] mx-auto"
           >
+
 
             {projetos.map((projeto, index) => (
               <SwiperSlide key={index}>
