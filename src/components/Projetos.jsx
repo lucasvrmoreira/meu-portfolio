@@ -130,7 +130,7 @@ function AnimacaoManutencao() {
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
 
       {/* slot maior, centralizado e responsivo */}
-      <div className="mx-auto w-[320px] h-[240px] sm:w-[380px] sm:h-[280px] md:w-[440px] md:h-[320px] overflow-visible flex justify-center items-center">
+      <div className="mx-auto -ml-14 w-[320px] h-[240px] sm:w-[380px] sm:h-[280px] md:w-[440px] md:h-[320px] overflow-visible flex justify-center items-center">
         <Lottie animationData={maintenanceAnimation} loop className="w-full h-full" />
       </div>
     </div>
