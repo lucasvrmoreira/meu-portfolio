@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import maintenanceAnimation from "../assets/maintenance-web.json"; // ajuste o caminho se necessário
 
+/***************************** Swiper (carrossel) *****************************/
+// CRA/React "normal": basta instalar e importar assim
+// npm install swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 /***************************** Toast *********************************/
 function Toast({ message }) {
   if (!message) return null;
@@ -128,15 +137,16 @@ function AnimacaoManutencao() {
   return (
     <div className="mt-10 flex flex-col items-center text-sm text-gray-400">
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
-
-      {/* slot maior, centralizado e responsivo */}
-      <div className="mx-auto -ml-14 w-[320px] h-[240px] sm:w-[380px] sm:h-[280px] md:w-[440px] md:h-[320px] overflow-visible flex justify-center items-center">
-        <Lottie animationData={maintenanceAnimation} loop className="w-full h-full" />
+      <div className="mx-auto w-[320px] h-[240px] sm:w-[380px] sm:h-[280px] md:w-[440px] md:h-[320px] flex justify-center items-center overflow-visible">
+        <Lottie
+          animationData={maintenanceAnimation}
+          loop
+          style={{ width: '100%', height: '100%', overflow: 'visible' }}
+        />
       </div>
     </div>
   );
 }
-
 
 /******************************* Dados *******************************/
 const projetos = [
@@ -145,9 +155,6 @@ const projetos = [
     descricao:
       'Sistema que realiza consulta e validação de NF-e, leitura de XMLs e integração com ERP utilizando Selenium e APIs.',
     tecnologias: ['Python', 'Selenium', 'JavaScript'],
-    //github: 'https://github.com/seuusuario/automacao-fiscal',
-    //online: '',
-    //credenciais: null,
     mostrarManutencao: true,
   },
   {
@@ -155,15 +162,12 @@ const projetos = [
     descricao:
       'O SICRO é uma aplicação desenvolvida para gerenciar todo o ciclo de vida das roupas esterilizadas utilizadas em hospitais,laboratorios e centros cirúrgicos, garantindo rastreabilidade, segurança e conformidade com os protocolos da CCIH.',
     tecnologias: ['Python', 'Flask', 'PostgreSQL', 'Vite', 'React', 'JavaScript'],
-    //github: 'https://github.com/seuusuario/sicro',
-    //online: '',
-    //credenciais: null,
     mostrarManutencao: true,
   },
   {
     nome: 'GQ TRACK',
     descricao:
-      'Sistema voltado para a área farmacêutica que automatiza a etiquetagem, gera QR Code e integra com SAP.',
+      'Sistema voltado para a área farmacêutica que automatiza a etiquetagem de produtos, com geração de QR Codes inteligentes que armazenam as informações do lote extraídas diretamente do banco SAP, além do link para o Certificado de Análise (CoA).Garante rastreabilidade, agilidade e conformidade nos processos de Garantia da Qualidade.',
     tecnologias: ['Python', 'Flask', 'PostgreSQL', 'React', 'Vite', 'TailwindCSS', 'JavaScript'],
     github: 'https://github.com/lucasvrmoreira/gqtrack',
     online: 'https://gqtrack.vercel.app/',
@@ -185,65 +189,90 @@ export default function Projetos() {
 
   return (
     <>
+      {/* Força estilos do Swiper no CRA/GitHub Pages para evitar clipping e garantir botões visíveis */}
+      <style>{`
+        .swiper, .swiper-wrapper, .swiper-slide { overflow: visible !important; }
+        .swiper-button-next, .swiper-button-prev { color: #a855f7; }
+        .swiper-pagination-bullet-active { background: #a855f7; }
+      `}</style>
+
       <section id="projetos" className="bg-bg-white text-black py-40 px-12">
         <div className="max-w-8xl mx-auto">
           <h2 className="text-center text-4xl font-extrabold italic mb-20 text-black-400">
             <span>PROJETOS</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Carrossel Swiper substituindo a grid */}
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            speed={600}
+            spaceBetween={24}
+            slidesPerView={1}     // 👈 1 por vez (sempre vai deslizar)
+            centeredSlides        // card central
+            loop                  // loop infinito
+            className="!overflow-visible max-w-[1200px] mx-auto"  // opcional: limita a largura do Swiper
+          >
             {projetos.map((projeto, index) => (
-              <div
-                key={index}
-                className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300 flex flex-col min-h-[720px] pb-12"
-              >
-                <h3 className="text-xl font-bold text-purple-400 mb-2">{projeto.nome}</h3>
-                <p className="text-gray-300 mb-4">{projeto.descricao}</p>
+              <SwiperSlide key={index}>
+                {/* 👇 limita o tamanho do card, deixando-o "menor" e centralizado */}
+                <div className="max-w-[420px] md:max-w-[520px] mx-auto">
+                  <div className="bg-[#111] p-6 rounded-lg shadow-md border border-purple-800 hover:scale-105 transition-transform duration-300">
+                    <h3 className="text-xl font-bold text-purple-400 mb-2">{projeto.nome}</h3>
+                    <p className="text-gray-300 mb-4">{projeto.descricao}</p>
 
-                {/* Ícones das tecnologias (com fallback para chip de texto) */}
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {projeto.tecnologias.map((tech, i) => {
-                    const iconId = techToIconId(tech);
-                    return hasSkillIcon(iconId) ? (
-                      <img
-                        key={i}
-                        src={`https://skillicons.dev/icons?i=${iconId}`}
-                        alt={`${tech} logo`}
-                        title={tech}
-                        width="32"
-                        height="32"
-                        className="rounded-full bg-purple-700/70 p-1"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span
-                        key={i}
-                        className="bg-purple-700 text-white text-xs px-2 py-1 rounded-full font-medium"
-                      >
-                        {tech}
-                      </span>
-                    );
-                  })}
+                    {/* Ícones das tecnologias (com fallback para chip de texto) */}
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {projeto.tecnologias.map((tech, i) => {
+                        const iconId = techToIconId(tech);
+                        return hasSkillIcon(iconId) ? (
+                          <img
+                            key={i}
+                            src={`https://skillicons.dev/icons?i=${iconId}`}
+                            alt={`${tech} logo`}
+                            title={tech}
+                            width="32"
+                            height="32"
+                            className="rounded-full bg-purple-700/70 p-1"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span
+                            key={i}
+                            className="bg-purple-700 text-white text-xs px-2 py-1 rounded-full font-medium"
+                          >
+                            {tech}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    {/* Links */}
+                    <LinkRow github={projeto.github} online={projeto.online} />
+
+                    {/* Mensagem + Credenciais (quando existir) */}
+                    {projeto.credenciais && (
+                      <>
+                        <p className="mt-4 text-sm text-gray-400">
+                          Abaixo as credenciais para acesso online:
+                        </p>
+                        <Credenciais credenciais={projeto.credenciais} setToast={setToast} />
+                      </>
+                    )}
+
+                    {/* Animação de manutenção (para projetos em desenvolvimento) */}
+                    {projeto.mostrarManutencao && (
+                      <div className="mt-auto pt-4 overflow-visible">
+                        <AnimacaoManutencao />
+                      </div>
+                    )}
                 </div>
-
-                {/* Links */}
-                <LinkRow github={projeto.github} online={projeto.online} />
-
-                {/* Mensagem + Credenciais (quando existir) */}
-                {projeto.credenciais && (
-                  <>
-                    <p className="mt-4 text-sm text-gray-400">
-                      Abaixo as credenciais para acesso online:
-                    </p>
-                    <Credenciais credenciais={projeto.credenciais} setToast={setToast} />
-                  </>
-                )}
-
-                {/* Animação de manutenção (para projetos em desenvolvimento) */}
-                {projeto.mostrarManutencao && <AnimacaoManutencao />}
-              </div>
+                  </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
 
