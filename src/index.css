@@ -39,3 +39,18 @@ svg {
     overflow: visible !important;
   }
 }
+.swiper,
+.swiper-slide,
+.swiper-wrapper {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.swiper-slide > div {
+  height: auto !important;
+}
+
+.swiper-slide lottie-player,
+.swiper-slide canvas {
+  max-height: none !important;
+}
