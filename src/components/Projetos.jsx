@@ -212,7 +212,7 @@ export default function Projetos() {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            autoplay={{ delay: 50000, disableOnInteraction: false }}
             speed={600}
             spaceBetween={24}
             slidesPerView={1}     // 👈 1 por vez (sempre vai deslizar)
