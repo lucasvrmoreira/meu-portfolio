@@ -137,16 +137,18 @@ function AnimacaoManutencao() {
   return (
     <div className="mt-10 flex flex-col items-center text-sm text-gray-400">
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
-      <div className="mx-auto w-[320px] h-[240px] sm:w-[380px] sm:h-[280px] md:w-[440px] md:h-[320px] flex justify-center items-center overflow-visible">
+      <div className="flex justify-center items-center w-full max-w-[440px] mx-auto">
         <Lottie
           animationData={maintenanceAnimation}
           loop
-          style={{ width: '100%', height: '100%', overflow: 'visible' }}
+          style={{ width: '100%', height: 'auto' }}
         />
       </div>
     </div>
   );
 }
+
+
 
 /******************************* Dados *******************************/
 const projetos = [
@@ -264,12 +266,12 @@ export default function Projetos() {
 
                     {/* Animação de manutenção (para projetos em desenvolvimento) */}
                     {projeto.mostrarManutencao && (
-                      <div className="mt-auto pt-4 overflow-visible">
+                      <div className="mt-auto pt-4 flex-1 flex items-center">
                         <AnimacaoManutencao />
                       </div>
                     )}
-                </div>
                   </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
