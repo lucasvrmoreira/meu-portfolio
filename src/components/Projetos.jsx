@@ -212,14 +212,15 @@ export default function Projetos() {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 50000, disableOnInteraction: false }}
-            speed={50000}
+            autoplay={{ delay: 50000, disableOnInteraction: false }} // 50 segundos no slide
+            speed={600} // transição rápida
             spaceBetween={24}
-            slidesPerView={1}     // 👈 1 por vez (sempre vai deslizar)
-            centeredSlides        // card central
-            loop                  // loop infinito
-            className="!overflow-visible max-w-[1200px] mx-auto"  // opcional: limita a largura do Swiper
+            slidesPerView={1}
+            centeredSlides
+            loop
+            className="!overflow-visible max-w-[1200px] mx-auto"
           >
+
             {projetos.map((projeto, index) => (
               <SwiperSlide key={index}>
                 {/* 👇 limita o tamanho do card, deixando-o "menor" e centralizado */}
