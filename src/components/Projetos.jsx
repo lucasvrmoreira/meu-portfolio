@@ -137,13 +137,14 @@ function AnimacaoManutencao() {
   return (
     <div className="mt-10 flex flex-col items-center text-sm text-gray-400">
       <p className="text-center mb-3">Fase final de desenvolvimento</p>
-      <div className="mx-auto flex justify-center items-center overflow-visible" style={{ maxWidth: '480px', maxHeight: '420px' }}>
+      <div className="flex justify-center items-center w-full max-w-[440px] mx-auto min-h-[280px]">
         <Lottie
           animationData={maintenanceAnimation}
           loop
-          style={{ width: '100%', height: '100%', overflow: 'visible' }}
+          style={{ width: '100%', height: '100%' }}
         />
       </div>
+
 
 
     </div>
