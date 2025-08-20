@@ -205,7 +205,7 @@ export default function Projetos() {
         .swiper-pagination-bullet-active { background: #a855f7; }
       `}</style>
 
-      <section id="projetos" className="bg-bg-white text-black py-40 px-12">
+      <section id="projetos" className="bg-white text-black py-40 px-12 pb-">
         <div className="max-w-8xl mx-auto">
           <h2 className="text-center text-4xl font-extrabold italic mb-20 text-black-400">
             <span>PROJETOS</span>
