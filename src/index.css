@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+/* RESET para prevenir linhas indesejadas entre seções com SVG */
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-x: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+}
+
+/* Garante que SVGs não deixem espaços extras */
+svg {
+  display: block;
+  line-height: 0;
+}
+@layer components {
+  .meu-projetos-swiper,
+  .meu-projetos-swiper .swiper,
+  .meu-projetos-swiper .swiper-slide {
+    overflow: visible !important;
+  }
+}
+.swiper,
+.swiper-slide,
+.swiper-wrapper {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.swiper-slide > div {
+  height: auto !important;
+}
+
+.swiper-slide lottie-player,
+.swiper-slide canvas {
+  max-height: none !important;
+}
+.jurandir-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ef4444; /* vermelho */
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, .35);
+}
+
+.jurandir-welcome-bubble {
+  position: absolute;
+  right: 72px;
+  bottom: 8px;
+  background: #7c3aed;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, .35);
+  font-size: 14px;
+  pointer-events: none; /* não bloqueia cliques */
+  max-width: 220px;
+}
