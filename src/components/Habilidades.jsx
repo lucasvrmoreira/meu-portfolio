@@ -29,19 +29,19 @@ const Habilidades = () => {
 
   return (
     <>
-      <section id="habilidades" className="bg-white text-black -mt-1 py-24">
+      <section id="habilidades" className="bg-white text-black py-16 px-3 sm:px-6">
         <h2 className="text-center text-4xl font-extrabold italic mb-8 text-black-400">
           <span>{t("skills.title")}</span>
         </h2>
 
-        <div className="bg-[#a4a3a3] text-white p-6 rounded-xl min-h-[250px] shadow-md">
+        <div className="bg-[#a4a3a3] text-white p-6 rounded-xl shadow-md w-full max-w-6xl mx-auto">
           {/* Abas */}
-          <div className="flex justify-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 w-full">
             {["tecnologias", "ferramentas", "outros", "seguranca"].map((aba) => (
               <button
                 key={aba}
                 onClick={() => setAbaAtiva(aba)}
-                className={`px-4 py-2 rounded-md transition font-medium ${
+                className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md transition font-medium ${
                   abaAtiva === aba
                     ? "bg-purple-600 text-white"
                     : "bg-[#3a3a3a] text-gray-300 hover:bg-purple-500 hover:text-white"
@@ -53,13 +53,13 @@ const Habilidades = () => {
           </div>
 
           {abaAtiva === "tecnologias" && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 place-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center w-full max-w-5xl mx-auto">
               {tecnologias.map((tec) => (
                 <div key={tec.nome} className="flex flex-col items-center">
                   <img
                     src={`https://skillicons.dev/icons?i=${tec.slug}`}
                     alt={tec.nome}
-                    className="w-16 h-16 object-contain mb-2"
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
                     loading="lazy"
                   />
                   <span className="text-sm">{tec.nome}</span>
@@ -69,13 +69,13 @@ const Habilidades = () => {
           )}
 
           {abaAtiva === "ferramentas" && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 place-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center w-full max-w-5xl mx-auto">
               {ferramentas.map((f) => (
                 <div key={f.nome} className="flex flex-col items-center">
                   <img
                     src={`https://skillicons.dev/icons?i=${f.slug}`}
                     alt={f.nome}
-                    className="w-16 h-16 object-contain mb-2"
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
                     loading="lazy"
                   />
                   <span className="text-sm">{f.nome}</span>
@@ -85,7 +85,7 @@ const Habilidades = () => {
           )}
 
           {abaAtiva === "outros" && (
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-5xl mx-auto">
               {outros.map((item, idx) => (
                 <div key={idx} className="bg-[#2c2c2c] border border-gray-600 rounded-md p-3 shadow-sm transition hover:border-purple-500">
                   <h3 className="text-base font-semibold text-white mb-1">{item.titulo}</h3>
@@ -96,7 +96,7 @@ const Habilidades = () => {
           )}
 
           {abaAtiva === "seguranca" && (
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full max-w-5xl mx-auto">
               {seguranca.map((item, idx) => (
                 <div key={idx} className="bg-[#2c2c2c] border border-gray-600 rounded-md p-3 shadow-sm transition hover:border-purple-500">
                   <h3 className="text-base font-semibold text-white mb-1">{item.titulo}</h3>
