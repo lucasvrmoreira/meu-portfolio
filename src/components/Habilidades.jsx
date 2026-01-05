@@ -41,11 +41,10 @@ const Habilidades = () => {
               <button
                 key={aba}
                 onClick={() => setAbaAtiva(aba)}
-                className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md transition font-medium ${
-                  abaAtiva === aba
-                    ? "bg-purple-600 text-white"
-                    : "bg-[#3a3a3a] text-gray-300 hover:bg-purple-500 hover:text-white"
-                }`}
+                className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md transition font-medium ${abaAtiva === aba
+                  ? "bg-purple-600 text-white"
+                  : "bg-[#3a3a3a] text-gray-300 hover:bg-purple-500 hover:text-white"
+                  }`}
               >
                 {t(`skills.tabs.${aba}`)}
               </button>
@@ -108,9 +107,20 @@ const Habilidades = () => {
         </div>
       </section>
 
-      <div className="-mt-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-          <path fill="#000000" fillOpacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+
+      {/* Final do Habilidades.jsx */}
+      <div className="relative bg-white overflow-hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 120"
+          className="w-full h-auto block"
+          style={{ marginBottom: "-1px" }}
+        >
+          <path
+            fill="#000000"
+            fillOpacity="1"
+            d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,42.7C1200,53,1320,75,1380,85.3L1440,96L1440,120L0,120Z"
+          ></path>
         </svg>
       </div>
     </>

@@ -19,7 +19,6 @@ export default function Navbar() {
         <ul className="flex space-x-6 text-lg font-medium">
           <li><a href="#hero" className="hover:text-purple-400 transition">{t("nav.home")}</a></li>
           <li><a href="#habilidades" className="hover:text-purple-400 transition">{t("nav.skills")}</a></li>
-          <li><a href="#experiencia" className="hover:text-purple-400 transition">{t("nav.experience")}</a></li>
           <li><a href="#projetos" className="hover:text-purple-400 transition">{t("nav.projects")}</a></li>
         </ul>
 
