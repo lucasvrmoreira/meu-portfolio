@@ -45,7 +45,7 @@ const Hero = () => {
           {/* Botões */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center sm:justify-start">
             <a
-              href="./Lucasmoreira_CV.pdf"
+              href="/Lv.pdf"
               download
               className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-5 rounded-lg flex items-center justify-center gap-2 transition duration-300 w-full sm:w-auto"
             >
