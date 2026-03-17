@@ -35,28 +35,14 @@ const resources = {
           { titulo: "Logs de Auditoria", descricao: "Registro de ações dos usuários" }
         ]
       },
-      experience: {
-        title: "EXPERIÊNCIA PROFISSIONAL",
-        current: "Atualmente",
-        items: [
-          {
-            empresa: "Cellavita",
-            atual: true,
-            periodo: "Janeiro/2023",
-            cargo: "Coordenador de Materiais & Desenvolvedor de Soluções",
-            descricao:
-              "Coordenação do fluxo de materiais na área produtiva e controle de estoque. Desenvolvimento de soluções com Python e automações fiscais com Selenium e PyAutoGUI. Criação de aplicações web com Flask e React, integração de sistemas via API/ETL e aplicação de metodologias como Lean e Melhoria Contínua.",
-            tecnologias: ["Python", "Flask", "React", "Selenium", "PyAutoGUI", "APIs REST", "XML", "HTML", "CSS", "JavaScript"]
-          }
-        ]
-      },
+
       projects: {
         title: "PROJETOS",
         online: "Ver Online",
         github: "GitHub",
         credsIntro: "Abaixo as credenciais para acesso online:",
         demoNote: "Conta de demonstração — permissões limitadas.",
-        devPhase: "Fase final de desenvolvimento",
+        devPhase: "Em Desenvolvimento",
         list: [
           {
             nome: "Automação Fiscal com Python",
@@ -71,18 +57,17 @@ const resources = {
               "O SICRO é uma aplicação desenvolvida para gerenciar todo o ciclo de vida das roupas esterilizadas utilizadas em hospitais,laboratorios e centros cirúrgicos, garantindo rastreabilidade, segurança e conformidade com os protocolos da CCIH.",
             tecnologias: ["Python", "PostgreSQL", "Vite", "React", "JavaScript", "FastAPI", "TailwindCSS"],
             github: "https://github.com/lucasvrmoreira/sicro",
-            online: "https://sicro-bqcl.vercel.app/login",
-            credenciais: { user: "producao", pass: "Cell@vita" }
+            online: "https://sicro-bqcl.vercel.app/login", 
           },
           {
-            nome: "GQ TRACK",
+            nome: "Barthender Web App",
             descricao:
-              "Sistema voltado para a área farmacêutica que automatiza a etiquetagem de produtos, com geração de QR Codes inteligentes que armazenam as informações do lote extraídas diretamente do banco SAP, além do link para o Certificado de Análise (CoA).Garante rastreabilidade, agilidade e conformidade nos processos de Garantia da Qualidade.",
-            tecnologias: ["Python", "Flask", "PostgreSQL", "React", "Vite", "TailwindCSS", "JavaScript"],
-            github: "https://github.com/lucasvrmoreira/gqtrack",
-            online: "https://gqtrack.vercel.app/",
-            credenciais: { user: "admin", pass: "123456" }
+              "Aplicação web desenvolvida para emissão de etiquetas, conectado com o banco de dados SAP/TOTVS, facilitando a impressão automatica e otimizando o processo de rotulagem em ambientes industriais.",
+            tecnologias: ["Python", "PostgreSQL", "Vite", "React", "JavaScript", "FastAPI", "TailwindCSS"],
+            github: "https://github.com/lucasvrmoreira/Bartender-web",
+            online: "https://bartender-web-nu.vercel.app/", 
           },
+
           {
             nome:"AgroVision AI",
             descricao:"O AgroVision AI é uma plataforma inteligente para diagnóstico agrícola automatizado, criada para ajudar produtores rurais, agrônomos e pesquisadores a detectar doenças e pragas em plantas apenas com uma foto da folha.",
@@ -127,21 +112,7 @@ const resources = {
           { titulo: "Audit Logs", descricao: "Record user actions" }
         ]
       },
-      experience: {
-        title: "PROFESSIONAL EXPERIENCE",
-        current: "Currently",
-        items: [
-          {
-            empresa: "Cellavita",
-            atual: true,
-            periodo: "January/2023",
-            cargo: "Materials Coordinator & Solutions Developer",
-            descricao:
-              "Coordinated material flow in production and inventory control. Built solutions with Python and fiscal automations using Selenium and PyAutoGUI. Developed web apps with Flask and React, integrated systems via API/ETL, and applied Lean/Continuous Improvement practices.",
-            tecnologias: ["Python", "Flask", "React", "Selenium", "PyAutoGUI", "REST APIs", "XML", "HTML", "CSS", "JavaScript"]
-          }
-        ]
-      },
+      
       projects: {
         title: "PROJECTS",
         online: "Live Demo",
@@ -165,24 +136,25 @@ const resources = {
             tecnologias: ["Python", "PostgreSQL", "Vite", "React", "JavaScript", "FastAPI", "TailwindCSS"],
             github: "https://github.com/lucasvrmoreira/sicro",
             online: "https://sicro-bqcl.vercel.app/login",
-            credenciais: { user: "producao", pass: "Cell@vita" }
+            
           },
-          {
-            nome: "GQ TRACK",
-            descricao:
-              "Pharma-oriented system that automates product labeling with smart QR Codes holding lot info fetched from SAP DB plus the Certificate of Analysis (CoA) link. Ensures traceability, speed, and compliance for Quality Assurance processes.",
-            tecnologias: ["Python", "Flask", "PostgreSQL", "React", "Vite", "TailwindCSS", "JavaScript"],
-            github: "https://github.com/lucasvrmoreira/gqtrack",
-            online: "https://gqtrack.vercel.app/",
-            credenciais: { user: "admin", pass: "123456" }
-          },
+         
           {
             nome: "AgroVision AI",
             descricao: "AgroVision AI is an intelligent platform for automated agricultural diagnostics, designed to help farmers, agronomists, and researchers detect plant diseases and pests using just a photo of the leaf.",
             tecnologias: ["Python","FastAPI","React","TensorFlow","OpenCV","PyTorch","OpenCV","NumPy + scikit-image","Generative AI - GPT-4o openAI"],
             lottie: true
 
-          }
+          },
+
+          {
+           nome: "Barthender Web App",
+            descricao:
+              "Web application developed for label issuance, connected to SAP/TOTVS databases, facilitating automatic printing and optimizing the labeling process in industrial environments.",
+            tecnologias: ["Python", "PostgreSQL", "Vite", "React", "JavaScript", "FastAPI", "TailwindCSS"],
+            github: "https://github.com/lucasvrmoreira/Bartender-web",
+            online: "https://bartender-web-nu.vercel.app/",
+          },
           
         ]
       },
