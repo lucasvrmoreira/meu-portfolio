@@ -45,8 +45,8 @@ const Hero = () => {
           {/* Botões */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center sm:justify-start">
             <a
-              href="/Lv.pdf"
-              download
+              href={process.env.PUBLIC_URL + "/Lv.pdf"}
+              download="Lv.pdf"
               className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-5 rounded-lg flex items-center justify-center gap-2 transition duration-300 w-full sm:w-auto"
             >
               <svg
